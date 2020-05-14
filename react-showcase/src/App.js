@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect, Switch, Link } from "react-router-dom";
-import { Menu, Image, Dropdown, Header } from "semantic-ui-react";
+import { Menu, Image, Dropdown, Header, Button } from "semantic-ui-react";
 import styled from "@emotion/styled";
 import logo from "./resources/semantic-ui-logo.png";
 
@@ -68,6 +68,11 @@ const PageContainer = ({ size = "medium", children }) => {
 const Showcase = () => (
   <>
     <Header content="Showcase" />
+    <div>
+      <Button content="Click Me!" />
+      <Button primary content="Click Me!" />
+      <Button secondary content="Click Me!" />
+    </div>
   </>
 );
 

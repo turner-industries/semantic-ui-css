@@ -1,3 +1,7 @@
 /*******************************
      User Global Variables
 *******************************/
+@primaryColor        : #00563f;
+@secondaryColor      : #7d7d7d;
+@black               : #494949;
+@invertedTextColor   : #fff9;

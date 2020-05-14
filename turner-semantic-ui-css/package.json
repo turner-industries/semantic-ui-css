@@ -1,12 +1,13 @@
 {
   "name": "turner-semantic-ui-css",
-  "version": "0.0.4",
+  "version": "0.0.9",
   "description": "",
-  "main": "./semantic/dist",
+  "main": "./dist",
   "files": [
-    "/semantic/dist"
+    "/dist"
   ],
   "scripts": {
+    "pack": "xcopy /Y /D /E /I \"./semantic/dist\" \"./dist\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
