@@ -1,80 +1,12 @@
 import React from "react";
-import { Route, Redirect, Switch, Link } from "react-router-dom";
-import { Menu, Image, Dropdown, Header, Button } from "semantic-ui-react";
+import { Route, Redirect, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
-import logo from "./resources/semantic-ui-logo.png";
-
-const AppHeaderRoot = styled.div`
-  .ui.menu {
-    border-radius: 0;
-    flex: 1;
-
-    .item {
-      padding: 0.6em 1em;
-
-      &.logo-container {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      .logo {
-        height: 32px;
-        margin-right: 15px;
-        width: 32px;
-      }
-    }
-  }
-`;
-
-const AppHeader = () => {
-  return (
-    <AppHeaderRoot>
-      <Menu inverted>
-        <Menu.Item as={Link} className="logo-container" to="/">
-          <Image className="logo" src={logo} title="Showcase" />
-          Showcase
-        </Menu.Item>
-        <Dropdown item text="Concepts">
-          <Dropdown.Menu>
-            <Dropdown.Item as={Link} to="/forms">
-              Forms
-            </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/tables">
-              Tables
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
-    </AppHeaderRoot>
-  );
-};
-
-const PageContainerRoot = styled.div`
-  display: flex;
-  background-color: #f5f5f5;
-  flex: 1;
-  flex-direction: column;
-  padding: 24px 12%;
-
-  .ui.header {
-    font-size: 1.8em;
-  }
-`;
-
-const PageContainer = ({ size = "medium", children }) => {
-  return <PageContainerRoot>{children}</PageContainerRoot>;
-};
-
-const Showcase = () => (
-  <>
-    <Header content="Showcase" />
-    <div>
-      <Button content="Click Me!" />
-      <Button primary content="Click Me!" />
-      <Button secondary content="Click Me!" />
-    </div>
-  </>
-);
+import ManagementScreen from "./screens/ManagementScreen";
+import Showcase from "./screens/Showcase";
+import AppHeader from "./components/AppHeader";
+import PageContainer from "./components/PageContainer";
+import Forms from "./screens/Forms";
+import Tables from "./screens/Tables";
 
 const PageRoute = ({ path, component }) => (
   <PageContainer>
@@ -91,25 +23,13 @@ const AppRoot = styled.div`
     display: flex;
     flex: 1;
   }
+
+  .ui.inverted.table th {
+    background-color: #494949;
+  }
 `;
 
-const Forms = () => {
-  return (
-    <>
-      <Header content="Forms" />
-    </>
-  );
-};
-
-const Tables = () => {
-  return (
-    <>
-      <Header content="Tables" />
-    </>
-  );
-};
-
-function App() {
+const App = () => {
   return (
     <AppRoot>
       <AppHeader />
@@ -117,12 +37,13 @@ function App() {
         <Switch>
           <PageRoute path="/forms" component={Forms} />
           <PageRoute path="/tables" component={Tables} />
+          <PageRoute path="/items" component={ManagementScreen} />
           <PageRoute path="/showcase" component={Showcase} />
           <Redirect to="/showcase" />
         </Switch>
       </div>
     </AppRoot>
   );
-}
+};
 
 export default App;
