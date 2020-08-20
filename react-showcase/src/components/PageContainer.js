@@ -6,7 +6,7 @@ const PageContainerRoot = styled.div`
   background-color: #f5f5f5;
   flex: 1;
   flex-direction: column;
-  padding: 24px 10%;
+  padding: 20px 10%;
 `;
 
 const PageContainer = ({ children }) => {

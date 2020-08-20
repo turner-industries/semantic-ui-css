@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [useInvertedStyle, setUseInvertedStyle] = useState(true);
+  const [useInvertedStyle, setUseInvertedStyle] = useState(false);
 
   const toggleInvertedStyle = () => {
     setUseInvertedStyle(!useInvertedStyle);
